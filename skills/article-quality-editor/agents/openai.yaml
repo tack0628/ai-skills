@@ -1,0 +1,4 @@
+interface:
+  display_name: "Article Quality Editor"
+  short_description: "編集長視点で記事の品質と公開リスクを総合的に査読する"
+  default_prompt: "Use $article-quality-editor to review this completed article and return a prioritized editorial report with concrete fixes."
