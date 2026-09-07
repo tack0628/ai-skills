@@ -80,3 +80,7 @@ Include `### Structural observations` only when useful. Consider:
 ## Examples
 
 For reusable test cases and QA checks, read `references/examples.md` when examples are needed.
+
+## Related skills
+
+- After `$content-cannibalization-finder`, accept only approved page roles and stable destinations as architecture constraints. Keep unresolved competition candidates labeled as hypotheses; do not use internal links as a substitute for a pending DIFFERENTIATE or MERGE decision.

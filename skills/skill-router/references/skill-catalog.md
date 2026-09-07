@@ -34,6 +34,16 @@ Use the canonical invocation form `$skill-name`. Do not infer availability from 
 - **Primary output:** Scope and limitations; article or portfolio actions; evidence, counterevidence, confidence and missing data; priority and bounded next step; detailed decision cards and cross-portfolio findings when applicable.
 - **Boundary:** Can run a content-only audit without performance data but must limit performance conclusions. It does not draft from scratch or automatically delete content.
 
+## content-cannibalization-finder
+
+- **Source:** `skills/content-cannibalization-finder/SKILL.md`
+- **Invocation:** `$content-cannibalization-finder`
+- **Description:** Detect and assess possible search-intent competition among existing site pages using supplied URL, title, content, and query-by-page performance data, then recommend KEEP, DIFFERENTIATE, MERGE, REDIRECT, INTERNAL-LINK, or HUMAN actions with evidence and uncertainty. Use for SEO cannibalization audits, query-ownership analysis, overlapping-content reviews, and consolidation triage; not for declaring cannibalization from keyword or title similarity alone.
+- **Required input:** Stable page identifiers or URLs for the pages being compared. Content or title/summary evidence is needed to assess intent; query-by-URL data is needed to move beyond a content-only competition candidate.
+- **Optional input:** Titles, headings, full text or summaries; comparable Search Console query/page clicks, impressions, CTR, and average position; time series; canonicals, indexation, internal links, conversions, backlinks, page roles, and business priorities.
+- **Primary output:** Pair/cluster finding and confidence; page-role and query-ownership analysis; evidence, counterevidence and missing data; KEEP/DIFFERENTIATE/MERGE/REDIRECT/INTERNAL-LINK/HUMAN action; bounded next step and success signal.
+- **Boundary:** It diagnoses possible competition rather than running a general refresh audit. Similar titles or content alone produce screening candidates, not claims of measured cannibalization; redirects and other external changes require a later approved implementation step.
+
 ## gallery-poster-maker
 
 - **Source:** `skills/gallery-poster-maker/SKILL.md`

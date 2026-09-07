@@ -10,6 +10,7 @@
 |---|---|---|---|---|
 | `skill-router` | 依頼に合うSkillの選定、入力案内、実行順の提案 | `$skill-router ブログ記事を見直して内部リンクも整えたい` | やりたいこと。目的、素材、制約があれば併記 | 推奨Skill、選定理由、不足入力、実行順。該当Skillがなければ新規Skill候補 |
 | `article-quality-editor` | 完成記事を編集長視点で査読し、公開可否と修正優先度を判断 | `$article-quality-editor この記事を公開前に査読して` | 記事本文（必須）。任意で読者、目的、出典、キーワード、文体ルール | 公開判定、品質評価、優先度付き指摘、要確認事項、修正順 |
+| `content-cannibalization-finder` | 記事同士の検索意図競合を複数の根拠から検出し、共存・差別化・統合等を判断 | `$content-cannibalization-finder 記事一覧とSearch Consoleデータから競合候補を調べて` | URL等の安定した識別子。任意でタイトル、本文/要約、クエリ×URLの検索データ、時系列、内部リンク等 | 競合候補/共存判定、クエリ所有状況、KEEP/DIFFERENTIATE/MERGE/REDIRECT/INTERNAL-LINK/HUMAN、根拠・反証・確信度 |
 | `content-refresh-auditor` | 既存記事を監査し、維持・調整・刷新・統合等を判断 | `$content-refresh-auditor 既存記事の更新優先度を監査して` | 記事本文または内容表現。複数記事ではURL等の識別子。任意で公開日・検索データ等 | KEEP/TUNE/REFRESH/MERGE/SPLIT/PRUNE/HUMAN判定、根拠、確信度、優先度、次の行動 |
 | `gallery-poster-maker` | 写真を上半分が写真、下半分が抽象表現の3:4ポスターに変換 | `$gallery-poster-maker この写真をギャラリーポスターにして` | 画像1枚以上（必須）。任意でタイトル、年、ムード、背景色、文字の有無 | 入力画像ごとの独立した3:4ミニマルポスター画像 |
 | `idea-to-spec` | 曖昧なプロダクト案を実装・検証可能なMVP仕様に整理 | `$idea-to-spec このツール案をMVP仕様にして` | ラフなアイデアやメモ。任意で利用者、制約、既決事項 | MVP境界、前提、ユーザーフロー、要件、受入基準、実装タスク |

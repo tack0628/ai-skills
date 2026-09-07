@@ -8,6 +8,7 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 |---|---|---|
 | Choose a skill, see available capabilities, or plan a cross-skill workflow | `$skill-router` | The desired result is a route or execution plan, not the domain artifact itself |
 | Assess whether an existing article is ready to publish | `$article-quality-editor` | A completed draft exists; the user wants editorial diagnosis, verification needs, or concrete fixes |
+| Detect whether multiple pages compete for the same search intent | `$content-cannibalization-finder` | The user wants page-pair/cluster, query-ownership, overlap, or cannibalization diagnosis rather than a general content lifecycle decision |
 | Decide what to do with an already-published article or portfolio | `$content-refresh-auditor` | The desired result is KEEP/TUNE/REFRESH/MERGE/SPLIT/PRUNE/HUMAN prioritization |
 | Turn uploaded photos into the defined premium split-layout poster | `$gallery-poster-maker` | At least one source image exists and the requested deliverable is a poster image |
 | Convert a vague product idea into a buildable MVP definition | `$idea-to-spec` | The product shape is still unclear and the deliverable is a specification, not implementation |
@@ -18,6 +19,7 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 ## Important boundaries
 
 - **Review vs refresh audit:** Use `$article-quality-editor` for the quality of a current draft. Use `$content-refresh-auditor` for the lifecycle decision and priority of an existing article. If both are requested, audit first; only send approved revision work to editorial review after revision.
+- **Cannibalization diagnosis vs refresh audit:** Use `$content-cannibalization-finder` when the core question is whether pages compete for the same intent, how query ownership is distributed, or whether overlap is useful. Use `$content-refresh-auditor` when overlap is only one factor in a broader KEEP/TUNE/REFRESH/MERGE/SPLIT/PRUNE decision. For a combined portfolio audit, diagnose material overlap candidates first and pass the evidence into the refresh audit.
 - **Drafting vs reviewing:** Use `$manga-article-architect` to create or restructure a manga article from notes. Use `$article-quality-editor` to judge a completed draft. Do not route general drafting to the editor.
 - **Specification vs implementation:** `$idea-to-spec` is appropriate while the MVP is vague. An implementation request against an already-defined spec has no matching build skill in this repository.
 - **Visual specificity:** `$gallery-poster-maker` is for its defined 3:4 split poster treatment. General retouching, logos, illustrations, slide design, or unrelated image generation are not matches.
@@ -45,11 +47,12 @@ Choose only the stages the user actually requests.
 
 ### Existing-content refresh
 
-1. `$content-refresh-auditor` — recommends the smallest justified action.
-2. Human decision — approves REFRESH, MERGE, SPLIT, or PRUNE scope.
-3. `$manga-article-architect` — only when approved work is a manga article and source notes support drafting.
-4. `$article-quality-editor` — checks the revised draft.
-5. `$internal-link-architect` — runs after the article structure is stable.
+1. Optional `$content-cannibalization-finder` — diagnoses material page-overlap or query-ownership questions when they are central to the audit.
+2. `$content-refresh-auditor` — recommends the smallest justified lifecycle action using overlap as one evidence dimension.
+3. Human decision — approves REFRESH, MERGE, SPLIT, or PRUNE scope.
+4. `$manga-article-architect` — only when approved work is a manga article and source notes support drafting.
+5. `$article-quality-editor` — checks the revised draft.
+6. `$internal-link-architect` — runs after the article structure and page roles are stable.
 
 ### Product idea
 

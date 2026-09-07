@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Cannibalization Finder"
+  short_description: "検索意図の競合候補を複数の根拠から判定する"
+  default_prompt: "Use $content-cannibalization-finder to assess these pages and query-by-URL data for search-intent competition and recommend evidence-grounded actions."

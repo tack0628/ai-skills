@@ -59,6 +59,7 @@ Store reusable preferences as narrow, contextual principles with provenance, exa
 
 ## Related skills
 
+- Use `$content-cannibalization-finder` when overlap or unstable query ownership needs dedicated pair/cluster diagnosis. Pass its finding, query scope, counterevidence, confidence, and unresolved data into this audit without treating the hypothesis as settled.
 - Send approved REFRESH work that needs manga-specific drafting or restructuring to `$manga-article-architect`, together with the audit evidence, preserved facts, and sections marked HUMAN.
 - Send a revised draft to `$article-quality-editor` for publication-readiness review. Preserve this audit's factual uncertainties and required human checks.
 - Use `$internal-link-architect` after article structure is stable. Pass the verified inventory and any overlap findings, but do not convert a cannibalization hypothesis into a link recommendation without evidence.

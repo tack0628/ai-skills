@@ -56,6 +56,7 @@ Do not modify the persistent principles file merely because the user accepted on
 
 ## Related skills
 
+- After an approved `$content-cannibalization-finder` DIFFERENTIATE or MERGE plan, review the revised draft against its assigned intent and confirm that unique material marked for preservation was not lost. Keep unresolved performance hypotheses out of the editorial verdict.
 - After `$manga-article-architect`, use its source notes and factual/interpretive separation as review context. Return structural, unsupported, or shallow-analysis findings without inventing canon details.
 - Before `$internal-link-architect`, resolve major content and structure issues so link recommendations target a stable draft. If links have already been inserted, review anchor naturalness and reader value, but do not infer the contents of linked pages from URLs alone.
 - A useful sequence is draft creation → quality review → internal-link design → a light final quality pass. Follow the user's requested order when it differs.
