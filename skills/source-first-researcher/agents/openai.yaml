@@ -1,0 +1,4 @@
+interface:
+  display_name: "Source First Researcher"
+  short_description: "一次情報を優先し、執筆や分析に使える調査パッケージを作る"
+  default_prompt: "Use $source-first-researcher to research this topic from primary sources and return a structured evidence package."

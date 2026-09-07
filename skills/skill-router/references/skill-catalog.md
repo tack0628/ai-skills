@@ -74,6 +74,16 @@ Use the canonical invocation form `$skill-name`. Do not infer availability from 
 - **Primary output:** Title candidates, lead, structured recap body, separately labeled impressions/analysis, conclusion, and a meta description when requested or useful.
 - **Boundary:** It is manga-specific and must not invent plot facts, dialogue, or canon. It is not a general article-review skill.
 
+## source-first-researcher
+
+- **Source:** `skills/source-first-researcher/SKILL.md`
+- **Invocation:** `$source-first-researcher`
+- **Description:** Research a topic for articles, analysis, or fact-checking by decomposing the question, prioritizing primary and authoritative sources, separating verified facts from inference and opinion, and returning a traceable research package with claims, citations, URLs, access dates, gaps, and handoff-ready notes. Use for SEO, public-policy, folklore or occult history, products and services, technical topics, and general research; not for writing the finished article.
+- **Required input:** A topic or research question and the purpose the research must serve.
+- **Optional input:** Intended reader or downstream task, geography or jurisdiction, time range, language, freshness deadline, depth, known sources, and exclusions.
+- **Primary output:** A versioned research package with question, claim, and source IDs; source classifications and locators; access dates; fact/inference/opinion status; confidence; conflicts; evidence gaps; important points; freshness triggers; and downstream handoff notes.
+- **Boundary:** Structures and verifies research. It does not write the finished article, treat secondary repetition as primary evidence, or hide the absence of suitable primary sources.
+
 ## Maintenance contract
 
 When a skill is added, renamed, removed, or materially changes scope:

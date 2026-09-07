@@ -13,6 +13,7 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 | Convert a vague product idea into a buildable MVP definition | `$idea-to-spec` | The product shape is still unclear and the deliverable is a specification, not implementation |
 | Choose internal links for a target article | `$internal-link-architect` | Both target content and a real site inventory are available or retrievable |
 | Draft a manga chapter recap, spoiler article, review, or analysis | `$manga-article-architect` | Source-grounded chapter notes or facts exist and the deliverable is manga-specific article copy |
+| Build an evidence package before writing, analysis, or fact-checking | `$source-first-researcher` | The user needs questions decomposed, primary sources gathered, claims classified, citations traced, or evidence gaps made explicit |
 
 ## Important boundaries
 
@@ -21,6 +22,7 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 - **Specification vs implementation:** `$idea-to-spec` is appropriate while the MVP is vague. An implementation request against an already-defined spec has no matching build skill in this repository.
 - **Visual specificity:** `$gallery-poster-maker` is for its defined 3:4 split poster treatment. General retouching, logos, illustrations, slide design, or unrelated image generation are not matches.
 - **Inventory dependency:** `$internal-link-architect` needs both target content and a real inventory. A missing inventory is a blocking input, not a reason to invent candidate URLs.
+- **Research vs drafting:** Use `$source-first-researcher` when the deliverable is evidence organized for later use. Use `$manga-article-architect` only when the deliverable is manga article copy. A request for general finished article drafting remains unmatched after research unless another suitable drafting skill is added.
 
 ## Common multi-skill sequences
 
@@ -28,11 +30,18 @@ Choose only the stages the user actually requests.
 
 ### New manga article through link planning
 
-1. `$manga-article-architect` — turns grounded notes into the draft.
-2. `$article-quality-editor` — reviews the stable draft and preserves source uncertainties.
-3. Human revision or approval — resolves blockers and applies chosen edits.
-4. `$internal-link-architect` — designs links against the verified site inventory after structure is stable.
-5. Optional light `$article-quality-editor` pass — checks inserted anchors and final readability.
+1. Optional `$source-first-researcher` — builds a source-grounded package when supplied notes are insufficient, contested, or need provenance work.
+2. `$manga-article-architect` — turns grounded notes or the approved research package into the draft.
+3. `$article-quality-editor` — reviews the stable draft and preserves source uncertainties.
+4. Human revision or approval — resolves blockers and applies chosen edits.
+5. `$internal-link-architect` — designs links against the verified site inventory after structure is stable.
+6. Optional light `$article-quality-editor` pass — checks inserted anchors and final readability.
+
+### Research before downstream work
+
+1. `$source-first-researcher` — decomposes the question and produces a traceable research package.
+2. Human or subject-matter review — resolves consequential disputed or unresolved claims when necessary.
+3. Pass the package, including claim labels, source IDs, and gaps, to the requested drafting, analysis, specification, or future source-library workflow. Select another repository skill only when it actually matches that deliverable.
 
 ### Existing-content refresh
 
@@ -55,7 +64,7 @@ Order by artifact dependency, not a fixed master sequence:
 - Produce or revise content before reviewing it.
 - Resolve major editorial findings before designing links against article structure.
 - Require a human gate before deletion, publication, external side effects, or work marked HUMAN.
-- Pass forward the smallest useful artifact: source notes and uncertainties, audit evidence and approved scope, stable draft, or verified inventory.
+- Pass forward the smallest useful artifact: a research package with claim/source IDs and uncertainties, audit evidence and approved scope, stable draft, or verified inventory.
 
 ## Ambiguity handling
 
@@ -65,6 +74,7 @@ Do not ask the user to classify their request in skill terminology. Explain the 
 - “記事を書いて” matches `$manga-article-architect` only for manga chapter material. General blog drafting has no current match.
 - “画像を作って” matches `$gallery-poster-maker` only when source photos and its poster treatment are intended.
 - “ツールを作って” matches `$idea-to-spec` only when the user wants the idea specified. Building the tool is a separate missing capability.
+- “調べて記事にして” contains two outcomes. Use `$source-first-researcher` for the evidence package, then route drafting separately; do not imply that research alone produces publishable copy.
 
 Ask one concise question only when the answer changes the selected skill or required sequence. Otherwise state the assumption and route.
 
@@ -74,7 +84,7 @@ A no-match result is correct when available skills cannot produce the requested 
 
 Propose a new skill only when the capability is coherent and likely reusable. Use a lowercase hyphenated name, a discriminating one-sentence description, essential inputs, and the primary output. Examples of current gaps include:
 
-- general article drafting outside manga;
+- general article drafting outside manga (research for it is covered by `$source-first-researcher`);
 - implementing an application from a completed specification;
 - general-purpose image editing outside the gallery-poster treatment;
 - publishing content to a CMS;
