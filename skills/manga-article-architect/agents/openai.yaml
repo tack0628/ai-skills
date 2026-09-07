@@ -1,4 +1,4 @@
 interface:
   display_name: "Manga Article Architect"
   short_description: "Build spoiler, recap, review, and analysis articles from manga chapter notes"
-  default_prompt: "Use Manga Article Architect to turn these manga chapter notes into a structured, source-grounded spoiler article with recap, impressions, analysis, and a concise conclusion."
+  default_prompt: "Use $manga-article-architect to turn these manga chapter notes into a structured, source-grounded spoiler article with recap, impressions, analysis, and a concise conclusion."

@@ -1,6 +1,6 @@
 ---
 name: gallery-poster-maker
-description: Transform uploaded photos into premium minimalist 3:4 editorial posters with a photographic upper half and an abstract geometric lower half. Use when the user asks to turn one or more uploaded photos into luxury, gallery-style, architectural, editorial, or minimalist posters, or invokes /gallery-poster.
+description: Transform uploaded photos into premium minimalist 3:4 editorial posters with a photographic upper half and an abstract geometric lower half. Use when the user asks to turn one or more uploaded photos into luxury, gallery-style, architectural, editorial, or minimalist posters, or invokes $gallery-poster-maker.
 ---
 
 # Gallery Poster Maker

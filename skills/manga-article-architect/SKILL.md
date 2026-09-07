@@ -1,6 +1,6 @@
 ---
 name: manga-article-architect
-description: Turn manga chapter notes, summaries, or source-grounded details into a structured spoiler article with title ideas, lead, headings, body, impressions, analysis, conclusion, and meta description. Use when the user asks to write or structure a manga chapter article, spoiler recap, review, analysis, or invokes /manga-article.
+description: Turn manga chapter notes, summaries, or source-grounded details into a structured spoiler article with title ideas, lead, headings, body, impressions, analysis, conclusion, and meta description. Use when the user asks to write or structure a manga chapter article, spoiler recap, review, analysis, or invokes $manga-article-architect.
 ---
 
 # Manga Article Architect

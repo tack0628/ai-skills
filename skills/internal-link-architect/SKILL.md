@@ -1,6 +1,6 @@
 ---
 name: internal-link-architect
-description: Analyze a target article against a supplied site inventory and recommend useful, natural internal links with ranked candidates, insertion points, anchor text, exclusions, and structural observations. Use when the user asks to find internal-link opportunities, improve internal linking, connect an article to related pages, analyze a sitemap or article inventory for links, or invokes /internal-link.
+description: Analyze a target article against a supplied site inventory and recommend useful, natural internal links with ranked candidates, insertion points, anchor text, exclusions, and structural observations. Use when the user asks to find internal-link opportunities, improve internal linking, connect an article to related pages, analyze a sitemap or article inventory for links, or invokes $internal-link-architect.
 ---
 
 # Internal Link Architect

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Router"
+  short_description: "依頼に最適なSkillと実行順、必要入力を案内する"
+  default_prompt: "Use $skill-router to choose the best skills for this request, list required inputs, and propose an execution order."

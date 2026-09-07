@@ -3,7 +3,7 @@
 ## Example 1: Simple article inventory
 
 ```text
-/internal-link
+$internal-link-architect
 
 Target article:
 [Paste article here]
@@ -46,7 +46,7 @@ Check whether the skill:
 Input:
 
 ```text
-/internal-link
+$internal-link-architect
 
 Target:
 Why does an air conditioner leak water on rainy days?

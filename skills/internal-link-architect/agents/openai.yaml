@@ -1,4 +1,4 @@
 interface:
   display_name: "Internal Link Architect"
   short_description: "Find useful internal-link opportunities from a site inventory"
-  default_prompt: "Use Internal Link Architect to analyze this article and recommend natural internal links from the supplied site inventory."
+  default_prompt: "Use $internal-link-architect to analyze this article and recommend natural internal links from the supplied site inventory."
