@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Refresh Auditor"
+  short_description: "記事ごとの更新・維持・統合判断を根拠付きで監査する"
+  default_prompt: "Use $content-refresh-auditor to audit these articles and search data, then recommend evidence-grounded refresh actions."
