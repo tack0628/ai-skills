@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gallery Poster Maker"
+  short_description: "Turn photos into premium minimalist gallery posters"
+  default_prompt: "Use Gallery Poster Maker to transform this uploaded photo into a premium 3:4 editorial poster with a photographic upper half and an abstract geometric lower half."
