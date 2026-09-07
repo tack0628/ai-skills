@@ -1,0 +1,4 @@
+interface:
+  display_name: "Idea to Spec"
+  short_description: "曖昧なアイデアを実装可能で検証可能なMVP仕様へ整理する"
+  default_prompt: "Use $idea-to-spec to turn this rough product idea into a practical MVP specification."
