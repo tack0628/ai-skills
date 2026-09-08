@@ -13,6 +13,16 @@ Require a topic or research question and a research purpose. Use supplied constr
 
 If the purpose is broad, infer a reasonable scope and state it. Ask only when an unresolved choice would materially change the research target, such as jurisdiction, product version, or historical period.
 
+## Research depth
+
+Default to **Standard** unless the user asks otherwise.
+
+- **Quick** — answer a narrow question with the minimum strong evidence; usually 1–2 authoritative/primary sources per core question and no broad context search.
+- **Standard** — cover core questions with the strongest reasonably available evidence; usually 1–3 strong sources per core question, adding secondary context only when useful.
+- **Deep** — use for contested, high-stakes, historical, or explicitly comprehensive research; broaden cross-checking and source diversity deliberately.
+
+Do not equate depth with link count. In every mode, stop when additional searches mostly repeat established evidence, the core questions are adequately supported, and remaining gaps are explicit.
+
 ## Reference routing
 
 - Before searching, read [references/source-priority.md](references/source-priority.md) to choose and classify sources. Revisit it when source authority is ambiguous or primary evidence is unavailable.
