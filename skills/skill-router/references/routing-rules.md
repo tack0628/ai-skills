@@ -14,7 +14,7 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 | Convert a vague product idea into a buildable MVP definition | `$idea-to-spec` | The product shape is still unclear and the deliverable is a specification, not implementation |
 | Choose internal links for a target article | `$internal-link-architect` | Both target content and a real site inventory are available or retrievable |
 | Draft a manga chapter recap, spoiler article, review, or analysis | `$manga-article-architect` | Source-grounded chapter notes or facts exist and the deliverable is manga-specific article copy |
-| Adapt supplied prose, testimony, primary-source material, or explanatory text into a manga or manga-production package | `$story-to-manga` | The source material already exists and the deliverable is a manga name/storyboard, continuity plan, generated reference art, or final page/panel images |
+| Adapt supplied prose, testimony, primary-source material, or explanatory text into a manga or manga-production package | `$story-to-manga` | The source material already exists and the deliverable is a production script, manga name/storyboard, continuity plan, generated art, speech-balloon layout, or fully lettered page images |
 | Build an evidence package before writing, analysis, or fact-checking | `$source-first-researcher` | The user needs questions decomposed, primary sources gathered, claims classified, citations traced, or evidence gaps made explicit |
 
 ## Important boundaries
@@ -26,7 +26,7 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 - **Visual specificity:** `$gallery-poster-maker` is for its defined 3:4 split poster treatment. General retouching, logos, illustrations, slide design, or unrelated image generation are not matches.
 - **Inventory dependency:** `$internal-link-architect` needs both target content and a real inventory. A missing inventory is a blocking input, not a reason to invent candidate URLs.
 - **Manga article vs manga adaptation:** Use `$manga-article-architect` when the output is a prose article about a manga chapter. Use `$story-to-manga` when supplied prose or source material itself should become a manga name, production package, or generated manga images.
-- **Blueprint vs full manga production:** `$story-to-manga` handles both. Route to the same skill and preserve the user's requested stopping point; otherwise its default is full production when an image-generation tool is available.
+- **Blueprint vs full manga production:** `$story-to-manga` handles both. Route to the same skill and preserve the user's requested stopping point; otherwise its default is production script, pre-lettering art generation, deterministic balloon and text composition, and final QA when the required tools are available.
 - **Research before documentary manga:** Use `$source-first-researcher` first when primary-source facts still need to be gathered or verified; pass the approved evidence package to `$story-to-manga` for adaptation and image production.
 - **Research vs drafting:** Use `$source-first-researcher` when the deliverable is evidence organized for later use. Use `$manga-article-architect` only when the deliverable is manga article copy. A request for general finished article drafting remains unmatched after research unless another suitable drafting skill is added.
 

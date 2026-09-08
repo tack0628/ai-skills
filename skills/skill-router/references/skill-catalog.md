@@ -88,11 +88,11 @@ Use the canonical invocation form `$skill-name`. Do not infer availability from 
 
 - **Source:** `skills/story-to-manga/SKILL.md`
 - **Invocation:** `$story-to-manga`
-- **Description:** Convert supplied stories, testimony, folklore, primary-source material, or explanatory text into a source-faithful manga and, when image generation is available, produce continuity-anchored reference art and final page or panel images. Use when the user asks to manga-ize, comic-adapt, storyboard, panelize, or visually dramatize supplied prose, or invokes $story-to-manga.
+- **Description:** Convert supplied stories, testimony, folklore, primary-source material, or explanatory text into a source-faithful manga, including production script, continuity-anchored art generation, speech balloons, and deterministic lettering. Use when the user asks to manga-ize, comic-adapt, storyboard, panelize, typeset, or visually dramatize supplied prose, or invokes $story-to-manga.
 - **Required input:** Source text, notes, transcript, or a source-grounded summary.
-- **Optional input:** Page/panel count, reading direction, manga format, audience, tone, visual mood, dialogue density, character references, historical/location constraints, delivery scope, and provenance metadata.
-- **Primary output:** Adaptation summary, source ledger, continuity bible, beat sheet, page-by-page manga name, generation package, master reference art, generated page or panel images, lettering map, manifest, and QA notes.
-- **Boundary:** It adapts supplied material rather than researching missing facts. Full production requires an available image-generation tool; otherwise it returns the completed blueprint and executable prompt package with the blocker disclosed. Unsupported facts, exact quotations, and certainty must not be invented.
+- **Optional input:** Page/panel count, reading direction, manga format, audience, tone, visual mood, dialogue density, character references, historical/location constraints, font preference, delivery scope, and provenance metadata.
+- **Primary output:** Adaptation summary, source ledger, continuity bible, beat sheet, production script, manga name, generation package, master reference art, pre-lettering page or panel images, machine-readable lettering plan, fully lettered final pages, manifest, and QA notes.
+- **Boundary:** It adapts supplied material rather than researching missing facts. Full production requires an available image-generation tool plus Python, Pillow, and a suitable font for deterministic lettering; otherwise it preserves completed intermediate artifacts and discloses the blocker. Unsupported facts, exact quotations, and certainty must not be invented.
 
 ## source-first-researcher
 

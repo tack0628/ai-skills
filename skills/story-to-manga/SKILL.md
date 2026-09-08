@@ -1,17 +1,17 @@
 ---
 name: story-to-manga
-description: Convert supplied stories, testimony, folklore, primary-source material, or explanatory text into a source-faithful manga and, when image generation is available, produce continuity-anchored reference art and final page or panel images. Use when the user asks to manga-ize, comic-adapt, storyboard, panelize, or visually dramatize supplied prose, or invokes $story-to-manga.
+description: Convert supplied stories, testimony, folklore, primary-source material, or explanatory text into a source-faithful manga, including production script, continuity-anchored art generation, speech balloons, and deterministic lettering. Use when the user asks to manga-ize, comic-adapt, storyboard, panelize, typeset, or visually dramatize supplied prose, or invokes $story-to-manga.
 ---
 
 # Story to Manga
 
-Turn supplied prose into a source-faithful manga through one continuous workflow: adaptation, manga name, continuity design, production prompts, reference art, page or panel generation, and visual QA.
+Turn supplied prose into a source-faithful manga through one continuous workflow: adaptation, production script, manga name, continuity design, pre-lettering art generation, speech-balloon and lettering composition, and visual QA.
 
 ## Delivery contract
 
 The default is **full production**, not a blueprint-only handoff.
 
-- When an image-generation tool is available, continue through actual image generation and return the generated images.
+- When an image-generation tool is available, continue through actual image generation, deterministic balloon and lettering composition, and return the final lettered images.
 - Stop at the manga name, continuity sheets, or prompts only when the user explicitly asks for that narrower deliverable.
 - If image generation is unavailable or fails, state the concrete blocker and return the completed blueprint plus executable prompt package. Never imply that images were created when they were not.
 - Do not require an extra confirmation between the name and image generation unless a missing choice would materially change the work or the environment requires authorization.
@@ -56,7 +56,7 @@ If critical details are absent, choose conservative defaults and label them as a
 4. **Continuity by reference, not prose alone.** Lock recurring visual anchors and reuse generated master references throughout production.
 5. **Page-turn logic.** Place major reveals and reversals where the page turn strengthens them.
 6. **Uncertainty preservation.** Retain qualifications such as “I think,” “apparently,” and “it was said.”
-7. **Observable completion.** Prompts are intermediate artifacts; generated and checked images are the output of full-production mode.
+7. **Observable completion.** Prompts and pre-lettering art are intermediate artifacts; checked, fully lettered images are the output of full-production mode.
 
 ## Workflow
 
@@ -104,11 +104,13 @@ For every page, define its purpose, panel count, emphasis, viewpoint, action, te
 
 Use fewer panels for dread, shock, emotional weight, and complex visual explanation. Use more panels for procedures, fast action, incremental realization, and comic timing.
 
-### 7. Write dialogue and lettering guidance
+### 7. Write the production script and lettering plan
 
 Keep text concise and drawable. Never invent quotations and present them as source text, turn paraphrase into quotation, or give historical figures undocumented exact dialogue as fact. Use narration, indirect speech, or an explicit dramatization label when exact wording is unavailable.
 
-Create a lettering map with exact text, speaker, panel, reading order, and placement zone. Treat lettering as a separate production layer when image generation cannot render exact text reliably.
+Create a production script keyed by page and panel. For every entry, specify scene, action, expression, dialogue, narration, SFX, transition, source status, and continuity IDs.
+
+Create a machine-readable lettering plan with exact text, speaker, panel, reading order, orientation, normalized placement box, balloon shape, and optional tail coordinates. Treat text and balloons as a separate deterministic production layer.
 
 ### 8. Build the generation package
 
@@ -119,7 +121,7 @@ Create:
 - a character reference-sheet prompt;
 - location or prop reference prompts when needed;
 - one page prompt per page, or one panel prompt per panel when page-level generation would be too dense;
-- negative constraints and text-safe zones;
+- negative constraints and reserved lettering zones;
 - a generation manifest mapping every output to source beats and continuity IDs.
 
 Do not overload each prompt with the entire source. Put stable information in references and page-specific differences in the individual prompt.
@@ -130,17 +132,21 @@ Use the available image-generation tool to create the character sheet first, fol
 
 If the user supplied appearance references, use them as references rather than silently redesigning the subject.
 
-### 10. Generate final pages or panels
+### 10. Generate pre-lettering pages or panels
 
 Generate one distinct asset per tool call. Reuse the approved master references on every call; do not use the previous generated page as the sole identity anchor. Generate in story order so the preceding page can be an additional continuity reference when useful.
 
-Use page-level generation for simple layouts. Use panel-level generation followed by available deterministic composition when a crowded page, precise lettering, or exact panel geometry makes a single generated page unreliable.
+Generate artwork without dialogue text, captions, SFX, speech balloons, or watermark. Preserve the low-detail zones reserved by the lettering plan. Use page-level generation for simple layouts. Use panel-level generation followed by available deterministic composition when a crowded page or exact panel geometry makes a single generated page unreliable.
 
-### 11. Inspect and repair
+### 11. Insert speech balloons and lettering
 
-Check every output against the name, source ledger, continuity bible, reading order, anatomy, props, environment, unwanted text, and safety constraints. Make a targeted edit or regenerate only the affected asset. Do not silently accept a visually polished image that changes a source fact or recurring design.
+Read [references/lettering-workflow.md](references/lettering-workflow.md). Use `scripts/letter_manga.py` with the validated lettering plan to place bubbles, captions, and exact vertical or horizontal text over the approved art. Keep the pre-lettering art unchanged and write a separate final file. Do not ask the image model to render exact final dialogue when deterministic composition is available.
 
-Finish by returning the images in reading order, the lettering map when text is separate, and a concise manifest of any unresolved limitations.
+### 12. Inspect and repair
+
+Check every output against the production script, name, source ledger, continuity bible, reading order, anatomy, props, environment, balloon ownership, text accuracy, text fit, and safety constraints. Correct the lettering plan for copy or placement errors; regenerate art only for art defects. Do not silently accept a visually polished image that changes a source fact or recurring design.
+
+Finish by returning the fully lettered images in reading order, the production script, and a concise manifest of any unresolved limitations.
 
 ## Mode-specific rules
 
@@ -172,11 +178,11 @@ Use this order unless the user asks for something narrower:
 2. Source ledger
 3. Character, location, and prop continuity bible
 4. Beat sheet
-5. Page-by-page manga name
-6. Generation package and manifest
+5. Production script and page-by-page manga name
+6. Generation package, lettering plan, and manifest
 7. Generated reference sheets
-8. Generated pages or panels in reading order
-9. Lettering map if text is separate
+8. Generated pre-lettering pages or panels
+9. Fully lettered final pages in reading order
 10. QA notes and human-check items
 
 For a quick or blueprint-only request, return only the requested subset and clearly state that image generation was intentionally not run.
@@ -188,5 +194,7 @@ For a quick or blueprint-only request, return only the requested subset and clea
 - Do not change identities, dates, places, causal relationships, or historically meaningful objects without labeling the change.
 - Do not generate filler panels.
 - Do not claim continuity merely because prompts repeat the same adjectives; use stable IDs and visual references.
+- Do not ask the image model to improvise final copy or bubble placement when the lettering script can compose them exactly.
+- Do not overwrite pre-lettering art during balloon and text insertion.
 - Do not claim a page is final before checking it.
 - When factual fidelity and cinematic effect conflict, preserve fidelity and explain the compromise.

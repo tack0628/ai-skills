@@ -1,4 +1,4 @@
 interface:
   display_name: "Story to Manga"
-  short_description: "Adapt prose into consistent, generated manga pages"
-  default_prompt: "Use $story-to-manga to turn this supplied text into a source-faithful manga, create stable character and location references, and generate the final page or panel images."
+  short_description: "Create and letter source-faithful manga pages"
+  default_prompt: "Use $story-to-manga to turn this supplied text into a source-faithful manga, write the production script, generate consistent pre-lettering art, and add speech balloons and exact lettering to the final pages."

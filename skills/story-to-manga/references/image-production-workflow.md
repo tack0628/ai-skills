@@ -1,6 +1,6 @@
 # Image production workflow
 
-Read this reference when `$story-to-manga` will generate actual images. It governs the handoff from an approved manga name to generated reference art and final pages or panels.
+Read this reference when `$story-to-manga` will generate actual images. It governs the handoff from an approved production script and manga name to reference art, pre-lettering pages or panels, and fully lettered final pages.
 
 ## 1. Choose the production route
 
@@ -58,9 +58,9 @@ Continuity IDs: <CHAR/LOC/PROP IDs present>
 Scene: <place, time, action, state change>
 Composition: <panel geometry, camera distance/angle, page-turn emphasis>
 Lighting/mood: <only what matters>
-Text-safe zones: <balloon/caption/SFX placement or no text>
+Lettering zones: <low-detail areas reserved for later balloon/caption/SFX placement>
 Constraints: <source facts and visual invariants>
-Avoid: <drift, extra characters/objects, watermark, accidental text, unsupported reveal>
+Avoid: <drift, extra characters/objects, speech balloons, captions, SFX, watermark, accidental text, unsupported reveal>
 ```
 
 Repeat critical invariants on edits. Do not rewrite the whole prompt when a single targeted correction is enough.
@@ -80,15 +80,15 @@ Prefer separate panel assets and deterministic composition when any of these app
 
 When no composition tool is available, generate a simpler letter-free page rather than pretending that an unreliable crowded layout is final. Preserve the complete name and lettering map for later assembly.
 
-## 6. Lettering policy
+## 6. Pre-lettering art contract
 
-Generated image text is not assumed to be accurate.
+Generated pages and panels are artwork plates, not finished lettered pages.
 
-- Keep exact dialogue, narration, labels, and SFX in the lettering map.
-- By default, ask for clean balloons, captions, or negative-space zones without rendered wording when text accuracy is uncertain.
-- If exact lettering is required and a deterministic layout or image-editing tool is available, add text after the art is approved.
-- If the user asks for text baked into generation, verify every visible string. Repair misspellings instead of reporting the page as final.
-- Do not turn paraphrased or dramatized words into apparent source quotations through lettering.
+- Include an explicit instruction in every page or panel prompt: no dialogue text, captions, SFX, speech balloons, labels, signatures, or watermark.
+- Reserve the planned lettering areas as low-detail negative space without placing blank bubbles there.
+- Do not put essential faces, hands, clues, period evidence, or action inside a reserved lettering area.
+- If the model produces accidental text or bubbles, repair or regenerate the artwork plate before typesetting.
+- Keep exact dialogue, narration, labels, and SFX only in the production script and lettering plan until the deterministic composition step.
 
 ## 7. Sequential generation loop
 
@@ -103,27 +103,37 @@ For each asset:
 
 Use a bounded repair loop. After two focused retries for the same defect, change strategy—for example, simplify the page, split into panels, or leave lettering separate—instead of repeating the same prompt indefinitely.
 
-## 8. Output persistence and delivery
+## 8. Balloon and lettering composition
+
+Read [lettering-workflow.md](lettering-workflow.md), build `lettering-plan.json`, validate it with `scripts/letter_manga.py --dry-run`, and then render the final pages. The script, not the image model, owns exact wording, balloon geometry, and final text placement.
+
+If the required font or Pillow is unavailable, report that concrete blocker and preserve the production script, lettering plan, and pre-lettering art. Do not label the unlettered pages final.
+
+## 9. Output persistence and delivery
 
 For preview-only work, render generated images inline. For project-bound work, preserve selected outputs in the workspace using a stable structure such as:
 
 ```text
 output/story-to-manga/<story-slug>/
+  script.md
+  lettering-plan.json
   references/
   panels/
-  pages/
+  pages/art/
+  pages/lettered/
   manifest.md
 ```
 
-Do not overwrite an existing selected asset unless the user explicitly requests replacement; use a versioned sibling filename. Return final images in reading order and identify the selected files or tool results. Distinguish final selections from discarded variants.
+Do not overwrite an existing selected asset unless the user explicitly requests replacement; use a versioned sibling filename. Keep art plates and lettered pages separate. Return fully lettered images in reading order and identify the selected files or tool results. Distinguish final selections from discarded variants.
 
-## 9. Final QA checklist
+## 10. Final QA checklist
 
 - Every requested page or panel exists.
 - Reading order and page-turn reveal match the name.
 - Recurring character silhouette, face anchors, clothing, and props remain recognizable.
 - Location geometry and object state change only when the story calls for it.
 - No image asserts an unsupported fact or removes documented uncertainty.
-- No accidental watermark, gibberish text, extra limb, duplicate character, or merged panel remains.
-- Exact text is either verified in the image or supplied in the lettering map.
+- No accidental watermark, generated gibberish text, extra limb, duplicate character, or merged panel remains.
+- Every final string exactly matches the production script and remains inside its balloon or caption.
+- Balloon tails clearly identify the intended speaker and do not obscure essential art.
 - The manifest maps outputs to page/panel numbers and continuity IDs.
