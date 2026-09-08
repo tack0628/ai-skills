@@ -43,6 +43,12 @@ Apply feedback immediately to the current specification. Treat a correction as c
 
 When maintaining preferences, use the record format in `references/design-principles.md`: capture the principle, scope, rationale, provenance, examples, exceptions, and status. Keep stable preferences separate from project facts and one-off decisions. Never overwrite a prior preference silently when new feedback conflicts with it; surface the conflict and narrow or supersede the record.
 
+## Efficiency defaults
+
+- Default to the compact specification depth for a single-purpose tool.
+- Do not research technologies, competitors, APIs, or implementation details unless the decision materially affects the MVP or the user requests it.
+- Stop once the builder can implement and verify the MVP; do not add speculative future architecture.
+
 ## Output
 
 Lead with a concise product summary and the proposed MVP boundary. Then use the relevant sections from the specification template. For a very small tool, a short specification with assumptions, core flow, requirements, acceptance criteria, and tasks is sufficient. For a consequential unresolved decision, end with a small decision block explaining what must be chosen and why.
