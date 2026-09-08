@@ -19,6 +19,17 @@ Accept one article or a portfolio. Use only what the user supplies or what autho
 
 An article or useful content representation is required for content-quality, intent, freshness, MERGE, or SPLIT conclusions. Performance data is optional. When it is absent, perform a content-only audit and explicitly limit performance conclusions. Ask for missing material only when it is essential to the requested decision; otherwise proceed with a clearly bounded result.
 
+## Portfolio efficiency
+
+For a portfolio, do not send every full article through deep analysis by default.
+
+Use a staged funnel:
+1. **Screen** inventory/metadata/performance data to identify plausible candidates.
+2. **Triage** the highest-value or highest-uncertainty candidates using titles, summaries, relevant sections, and query evidence.
+3. **Deep audit** full article text only for candidates where the lifecycle decision depends on content-level evidence.
+
+Prefer deterministic filtering or supplied audit outputs before model-heavy review when available. State the shortlist logic and do not interpret an unexamined article as audited.
+
 ## Reference routing
 
 - For evidence requirements, diagnosis, action definitions, and confidence rules, read [references/decision-framework.md](references/decision-framework.md).
