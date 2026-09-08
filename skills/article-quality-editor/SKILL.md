@@ -13,9 +13,18 @@ The article draft is required. Use any supplied brief, intended reader, publicat
 
 If optional context is absent, proceed with reasonable assumptions and state only assumptions that affect the verdict. Do not invent the article's intended audience, factual support, or SEO target.
 
+## Review depth
+
+Default to **Light** for casual requests such as “check this article” and **Full** when the user asks for a publication-readiness audit, comprehensive review, or detailed fact/SEO/structure check.
+
+- **Light** — inspect the draft once for material factual risk, obvious redundancy, awkward/AI-like phrasing, structure, clarity, and the highest-value fixes. Return only consequential findings. Do not load the full checklist unless a material issue requires it.
+- **Full** — run every applicable review dimension and use the complete checklist and report format.
+
+A light review may escalate a specific issue to full-depth analysis without turning the entire article into a full review.
+
 ## Reference routing
 
-- For a full review, read [references/quality-checklist.md](references/quality-checklist.md) and inspect every applicable dimension.
+- For a **Full** review, read [references/quality-checklist.md](references/quality-checklist.md) and inspect every applicable dimension. For **Light**, load it only if needed to resolve a material finding.
 - For the report shape, severity levels, and verdicts, read [references/review-format.md](references/review-format.md).
 - Before applying house-style or user-specific judgment, and whenever the user gives feedback on the review, read [references/editing-principles.md](references/editing-principles.md).
 
