@@ -22,6 +22,14 @@ Accept optional constraints such as:
 
 If the user supplies only one article and no inventory, ask for a sitemap or article list unless the environment can directly access the site's content.
 
+## Efficiency defaults
+
+- Do not fetch or read every linked article in a large inventory.
+- First shortlist from titles, URLs, categories, headings, or supplied metadata; default to at most 10 candidates for closer inspection.
+- Open/read full destination content only when metadata is insufficient to verify relevance, normally for the strongest few candidates.
+- Return at most 5 recommended links unless the user requests more.
+- If the target article is already available as text, do not retrieve it again.
+
 ## Workflow
 
 1. Identify the target article's main topic, subtopics, search intent, entities, and likely reader follow-up questions.
