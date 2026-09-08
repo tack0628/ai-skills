@@ -24,11 +24,11 @@ An article or useful content representation is required for content-quality, int
 For a portfolio, do not send every full article through deep analysis by default.
 
 Use a staged funnel:
-1. **Screen** inventory/metadata/performance data to identify plausible candidates.
+1. **Screen** inventory/metadata/performance data to identify plausible candidates. For a large portfolio, default to the top 20 candidates by explicit signals rather than expanding every page.
 2. **Triage** the highest-value or highest-uncertainty candidates using titles, summaries, relevant sections, and query evidence.
-3. **Deep audit** full article text only for candidates where the lifecycle decision depends on content-level evidence.
+3. **Deep audit** full article text only for candidates where the lifecycle decision depends on content-level evidence; default to the top 5 deep reads per pass unless the user requests a broader batch.
 
-Prefer deterministic filtering or supplied audit outputs before model-heavy review when available. State the shortlist logic and do not interpret an unexamined article as audited.
+Prefer deterministic filtering or supplied audit outputs before model-heavy review when available. State the shortlist logic and do not interpret an unexamined article as audited. Before a materially larger batch, warn that the run is high-load and propose chunking instead of silently expanding scope.
 
 ## Reference routing
 
