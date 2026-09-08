@@ -17,10 +17,10 @@ If optional context is absent, proceed with reasonable assumptions and state onl
 
 Default to **Light** for casual requests such as “check this article” and **Full** when the user asks for a publication-readiness audit, comprehensive review, or detailed fact/SEO/structure check.
 
-- **Light** — inspect the draft once for material factual risk, obvious redundancy, awkward/AI-like phrasing, structure, clarity, and the highest-value fixes. Return only consequential findings. Do not load the full checklist unless a material issue requires it.
+- **Light** — inspect the draft once for material factual risk, obvious redundancy, awkward/AI-like phrasing, structure, clarity, and the highest-value fixes. Return at most the 5 highest-impact findings unless the user asks for more. Do not load the full checklist unless a material issue requires it.
 - **Full** — run every applicable review dimension and use the complete checklist and report format.
 
-A light review may escalate a specific issue to full-depth analysis without turning the entire article into a full review.
+A light review may escalate a specific issue to full-depth analysis without turning the entire article into a full review. Prefer location-specific edits or replacement passages over a full rewrite; rewrite the whole article only when explicitly requested.
 
 ## Reference routing
 
