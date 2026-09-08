@@ -23,7 +23,7 @@ Treat the quick index as a lightweight first pass and the catalog as the detaile
 
 1. Identify the requested outcome, supplied materials, constraints, and current stage of work.
 2. Compare the request with each catalog entry's positive scope, required inputs, and exclusions. Prefer the most specific skill that covers the outcome.
-3. Select one skill when it can complete the job. Select multiple skills only when each produces an output needed by a distinct stage of the request.
+3. Select one skill when it can complete the job. Select multiple skills only when each produces an output needed by a distinct stage of the request. Default to at most 3 stages; add more only when a real artifact dependency requires them.
 4. Order multiple skills by artifact dependency. State what each step passes to the next and place human decisions before dependent work.
 5. Separate inputs into `available`, `needed before execution`, and `optional`. Ask only for missing inputs that the selected skill truly requires.
 6. If no available skill is a credible match, say so directly and propose a narrowly named new-skill candidate. Do not force the closest existing skill.
@@ -52,7 +52,7 @@ For no match, return:
 - **Would require:** essential inputs and expected output
 - **Closest existing skill, if any:** explain the reusable boundary without presenting it as a match
 
-Keep the answer proportional. A simple request should not receive a large workflow.
+Keep the answer proportional. A simple request should not receive a large workflow. Do not execute optional downstream skills merely because they might improve the result; stop when the requested outcome is satisfied.
 
 ## Guardrails
 
