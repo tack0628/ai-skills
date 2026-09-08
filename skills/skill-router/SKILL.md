@@ -13,10 +13,11 @@ The user's desired outcome is required. Use supplied artifacts, constraints, and
 
 ## Reference routing
 
-1. Read [references/skill-catalog.md](references/skill-catalog.md) for the available skills, their exact descriptions, inputs, outputs, and boundaries.
-2. Read [references/routing-rules.md](references/routing-rules.md) when the request is ambiguous, spans multiple stages, appears to match no skill, or requires an execution order.
+1. Read [references/quick-index.md](references/quick-index.md) first. If one entry clearly matches, route from it without loading larger references.
+2. Read [references/skill-catalog.md](references/skill-catalog.md) only when detailed inputs, outputs, or boundaries must be verified.
+3. Read [references/routing-rules.md](references/routing-rules.md) only when the request is ambiguous, spans multiple stages, appears to match no skill, or requires an execution order.
 
-Treat the catalog as the routing source of truth. Never invent an installed skill, capability, input, or output. If the repository is available and its `skills/*/SKILL.md` inventory differs from the catalog, report that the catalog needs maintenance and route only from verified files.
+Treat the quick index as a lightweight first pass and the catalog as the detailed routing source of truth. Never invent an installed skill, capability, input, or output. If the repository is available and its `skills/*/SKILL.md` inventory differs from the catalog, report that the catalog needs maintenance and route only from verified files.
 
 ## Routing workflow
 
