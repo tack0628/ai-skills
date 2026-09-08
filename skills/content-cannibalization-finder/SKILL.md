@@ -24,12 +24,12 @@ Use only supplied data and information retrieved through authorized tools. Query
 Do not compare every page pair at full depth by default.
 
 Use a staged funnel:
-1. Generate candidates cheaply from shared query exposure, supplied clusters, titles/headings, or precomputed similarity.
+1. Generate candidates cheaply from shared query exposure, supplied clusters, titles/headings, or precomputed similarity; for large inventories, default to the top 20 candidate pairs/clusters by explicit signals.
 2. Remove pairs with clearly different roles/intents when evidence is sufficient.
-3. Deep-read full content and time-series evidence only for the remaining plausible competition candidates.
+3. Deep-read full content and time-series evidence only for the remaining plausible competition candidates; default to the top 5 deep comparisons per pass unless the user asks for a broader batch.
 4. Rank and report only material candidates plus a concise count of screened-out groups.
 
-For large sites, prefer deterministic/precomputed candidate generation before model-heavy pair analysis. Never treat the cheap screening signal as proof of cannibalization.
+For large sites, prefer deterministic/precomputed candidate generation before model-heavy pair analysis. Never treat the cheap screening signal as proof of cannibalization. Before a materially larger batch, warn that the run is high-load and propose chunking.
 
 ## Reference routing
 
