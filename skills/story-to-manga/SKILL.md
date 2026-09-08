@@ -1,13 +1,22 @@
 ---
 name: story-to-manga
-description: Convert user-provided stories, firsthand accounts, folklore, historical or primary-source material, and explanatory text into a source-faithful manga blueprint with adaptation notes, character sheets, page and panel breakdowns, dialogue/narration guidance, and image-generation directions. Use when the user asks to manga-ize, comic-adapt, storyboard, panelize, or visually dramatize supplied prose, or invokes $story-to-manga.
+description: Convert supplied stories, testimony, folklore, primary-source material, or explanatory text into a source-faithful manga and, when image generation is available, produce continuity-anchored reference art and final page or panel images. Use when the user asks to manga-ize, comic-adapt, storyboard, panelize, or visually dramatize supplied prose, or invokes $story-to-manga.
 ---
 
 # Story to Manga
 
-Turn supplied prose into a manga-production blueprint while preserving what the source actually supports.
+Turn supplied prose into a source-faithful manga through one continuous workflow: adaptation, manga name, continuity design, production prompts, reference art, page or panel generation, and visual QA.
 
-This skill defaults to **planning and adaptation**, not final image generation. Produce a usable manga blueprint that can be handed to an illustrator or image-generation workflow.
+## Delivery contract
+
+The default is **full production**, not a blueprint-only handoff.
+
+- When an image-generation tool is available, continue through actual image generation and return the generated images.
+- Stop at the manga name, continuity sheets, or prompts only when the user explicitly asks for that narrower deliverable.
+- If image generation is unavailable or fails, state the concrete blocker and return the completed blueprint plus executable prompt package. Never imply that images were created when they were not.
+- Do not require an extra confirmation between the name and image generation unless a missing choice would materially change the work or the environment requires authorization.
+
+For the detailed generation, reference reuse, lettering, file, and QA procedure, read [references/image-production-workflow.md](references/image-production-workflow.md) before generating images.
 
 ## Supported modes
 
@@ -23,277 +32,161 @@ Infer the best mode from the source unless the user specifies one.
 ## Required input
 
 At minimum:
+
 - Source text, notes, transcript, or a source-grounded summary.
 
 Useful optional inputs:
-- Desired page count or panel count
+
+- Desired page or panel count
 - Reading direction
-- Target format: vertical scroll, standard manga page, 4-koma, short comic, etc.
-- Audience
-- Tone and visual mood
-- Whether dialogue should be minimal or narration-heavy
+- Target format: vertical scroll, standard manga page, 4-koma, short comic, and so on
+- Audience, tone, visual mood, and dialogue density
 - Character appearance references
-- Historical period, location, props, or costume constraints
-- Whether the user wants only a name/storyboard or also image-generation directions
+- Historical period, location, prop, or costume constraints
+- Desired delivery scope: full production, sample pages, name only, or prompts only
 - Source citations, URLs, dates, or document labels when provenance matters
 
 If critical details are absent, choose conservative defaults and label them as adaptation choices rather than facts.
 
 ## Core principles
 
-1. **Source fidelity before drama.**
-   Do not alter the meaning of supplied material merely to make it more cinematic.
-
-2. **Separate fact, recollection, inference, and staging.**
-   A panel may visually reconstruct an event without claiming that every depicted detail is documented.
-
-3. **Visual economy.**
-   Prefer panels that each perform a clear narrative or explanatory function.
-
-4. **Continuity.**
-   Stabilize recurring character appearance, clothing, props, environment, time of day, and spatial relationships.
-
-5. **Page-turn logic.**
-   In page-based manga, reserve major reveals, reversals, and uncanny images for positions where the page turn strengthens them.
-
-6. **Uncertainty preservation.**
-   If the source says “I think,” “apparently,” “it was said,” or otherwise expresses uncertainty, retain that uncertainty.
+1. **Source fidelity before drama.** Do not alter supplied meaning merely to make it more cinematic.
+2. **Separate fact, recollection, inference, and staging.** A reconstructed panel must not imply that every depicted detail is documented.
+3. **Visual economy.** Every panel should advance story, atmosphere, continuity, or explanation.
+4. **Continuity by reference, not prose alone.** Lock recurring visual anchors and reuse generated master references throughout production.
+5. **Page-turn logic.** Place major reveals and reversals where the page turn strengthens them.
+6. **Uncertainty preservation.** Retain qualifications such as “I think,” “apparently,” and “it was said.”
+7. **Observable completion.** Prompts are intermediate artifacts; generated and checked images are the output of full-production mode.
 
 ## Workflow
 
 ### 1. Classify the source
 
-Identify:
-- source type;
-- likely adaptation mode;
-- narrator or point of view;
-- temporal order;
-- key factual anchors;
-- uncertain or disputed elements;
-- the emotional or explanatory spine.
-
-Do not silently resolve contradictions.
+Identify the source type, adaptation mode, narrator or viewpoint, temporal order, factual anchors, uncertain or disputed elements, and emotional or explanatory spine. Do not silently resolve contradictions.
 
 ### 2. Build a source ledger
 
-Before panelization, list the most important source-grounded elements.
+List the important source-grounded elements. Use these labels when useful:
 
-Use labels when useful:
-- **FACT** — explicitly supported by the supplied source;
-- **RECOLLECTION** — narrator memory or testimony;
-- **CLAIM** — a claim attributed to a person or source;
-- **INFERENCE** — reasonable but not explicit;
-- **ADAPTATION** — a visual or structural choice introduced for readability;
-- **UNKNOWN** — unresolved.
+- **FACT** — explicitly supported by the supplied source
+- **RECOLLECTION** — narrator memory or testimony
+- **CLAIM** — attributed assertion
+- **INFERENCE** — reasonable but not explicit
+- **ADAPTATION** — introduced staging or structure
+- **UNKNOWN** — unresolved
 
-For casual fictional or user-authored stories, keep this lightweight. For primary-source or documentary material, make it explicit.
+Keep this lightweight for casual fiction. Make it explicit for primary-source or documentary material.
 
-### 3. Define adaptation constraints
+### 3. Define adaptation and production constraints
 
-State the working assumptions:
-- target length;
-- manga format;
-- tone;
-- degree of compression;
-- dialogue policy;
-- visual style direction;
-- any historically sensitive or source-sensitive constraints.
+Set the target length, format, reading direction, tone, compression, dialogue policy, visual medium, aspect ratio, color treatment, and source-sensitive constraints. Record which choices came from the user and which are adaptations.
 
-### 4. Create continuity sheets
+### 4. Create the continuity bible
 
-For every recurring person or entity, define only what is supported or deliberately chosen.
+Assign stable IDs such as `CHAR-01`, `LOC-01`, and `PROP-01`.
 
-Include:
-- role;
-- age range if known;
-- silhouette;
-- hair;
-- clothing;
-- distinguishing features;
-- carried objects;
-- emotional baseline;
-- continuity notes.
+For recurring people or entities, lock:
 
-For important locations, define:
-- layout;
-- lighting;
-- fixed objects;
-- entrances/exits;
-- spatial relationships;
-- period-specific details.
+- role and age range if known;
+- silhouette, proportions, hair, face anchors, clothing, and distinguishing features;
+- carried objects and emotional baseline;
+- immutable traits versus page-specific variables.
 
-Clearly mark invented visual details as **ADAPTATION**.
+For important locations, lock layout, entrances and exits, fixed objects, lighting logic, spatial relationships, and period details. Mark invented visual details as **ADAPTATION**.
 
 ### 5. Compress into beats
 
-Turn the source into a short beat sheet.
-
-Each beat should identify:
-- what changes;
-- what the reader learns;
-- the intended emotional or explanatory effect;
-- whether the beat is indispensable.
-
-Delete repetition unless repetition itself is meaningful.
+For each beat, identify what changes, what the reader learns, the intended effect, and whether it is indispensable. Remove repetition unless repetition itself matters.
 
 ### 6. Allocate pages and panels
 
-For each page, specify:
-- page purpose;
-- panel count;
-- panel size emphasis;
-- viewpoint;
-- action;
-- narration/dialogue;
-- sound effects when useful;
-- continuity notes;
-- source status for reconstructed details when necessary.
+For every page, define its purpose, panel count, emphasis, viewpoint, action, text, sound effects, continuity IDs, reconstruction status when relevant, and page-turn function.
 
-Use fewer panels for:
-- dread;
-- shock;
-- emotional weight;
-- complex visual explanation.
+Use fewer panels for dread, shock, emotional weight, and complex visual explanation. Use more panels for procedures, fast action, incremental realization, and comic timing.
 
-Use more panels for:
-- procedural sequences;
-- fast action;
-- incremental realization;
-- comic timing.
+### 7. Write dialogue and lettering guidance
 
-### 7. Write dialogue and narration guidance
+Keep text concise and drawable. Never invent quotations and present them as source text, turn paraphrase into quotation, or give historical figures undocumented exact dialogue as fact. Use narration, indirect speech, or an explicit dramatization label when exact wording is unavailable.
 
-Prefer concise, drawable text.
+Create a lettering map with exact text, speaker, panel, reading order, and placement zone. Treat lettering as a separate production layer when image generation cannot render exact text reliably.
 
-Never:
-- invent quotations and present them as source text;
-- turn paraphrase into quotation;
-- give historical figures undocumented exact dialogue as fact.
+### 8. Build the generation package
 
-When exact wording is unavailable, use narration, indirect speech, or label dialogue as dramatized.
+Create:
 
-### 8. Add image-generation directions
+- a global art-direction block;
+- compact immutable continuity blocks keyed by ID;
+- a character reference-sheet prompt;
+- location or prop reference prompts when needed;
+- one page prompt per page, or one panel prompt per panel when page-level generation would be too dense;
+- negative constraints and text-safe zones;
+- a generation manifest mapping every output to source beats and continuity IDs.
 
-When requested or useful, create a compact visual direction for each page or key panel.
+Do not overload each prompt with the entire source. Put stable information in references and page-specific differences in the individual prompt.
 
-Include:
-- recurring character continuity;
-- composition;
-- camera distance and angle;
-- lighting;
-- environment;
-- expression and pose;
-- important props;
-- negative constraints;
-- text placement zones.
+### 9. Generate master references
 
-Do not overload prompts with every minor source detail. Put global continuity in a shared section and page-specific differences in page directions.
+Use the available image-generation tool to create the character sheet first, followed by essential location or prop sheets. Inspect them before page generation. Correct material identity, costume, era, or layout errors now so they do not propagate.
+
+If the user supplied appearance references, use them as references rather than silently redesigning the subject.
+
+### 10. Generate final pages or panels
+
+Generate one distinct asset per tool call. Reuse the approved master references on every call; do not use the previous generated page as the sole identity anchor. Generate in story order so the preceding page can be an additional continuity reference when useful.
+
+Use page-level generation for simple layouts. Use panel-level generation followed by available deterministic composition when a crowded page, precise lettering, or exact panel geometry makes a single generated page unreliable.
+
+### 11. Inspect and repair
+
+Check every output against the name, source ledger, continuity bible, reading order, anatomy, props, environment, unwanted text, and safety constraints. Make a targeted edit or regenerate only the affected asset. Do not silently accept a visually polished image that changes a source fact or recurring design.
+
+Finish by returning the images in reading order, the lettering map when text is separate, and a concise manifest of any unresolved limitations.
 
 ## Mode-specific rules
 
 ### Horror / kaidan
 
-Prefer:
-- anticipatory panels before the reveal;
-- empty space;
-- off-panel sound;
-- repeated framing with one changed detail;
-- obscured or partial forms before full disclosure;
-- page turns for major visual reveals.
-
-Do not insert a visible monster merely because the source is frightening. If the source never identifies what was present, preserve ambiguity.
+Prefer anticipatory panels, empty space, off-panel sound, repeated framing with one changed detail, partial forms, and page-turn reveals. Do not insert a visible monster merely because the source is frightening. Preserve ambiguity when the source does.
 
 ### Firsthand account
 
-Keep the narrator's knowledge limited to what they could reasonably know at that point.
-
-Avoid omniscient panels that accidentally convert later inference into contemporaneous fact.
+Keep the narrator's knowledge limited to what they could reasonably know at that point. Avoid omniscient panels that convert later inference into contemporaneous fact.
 
 ### Primary-source / documentary
 
-At the beginning of the output, include a brief **Adaptation fidelity note**.
-
-If a visual must be reconstructed:
-- mark it **RECONSTRUCTION** or **ADAPTATION** in planning notes;
-- distinguish documented environment/details from generic period-appropriate fill;
-- preserve dates, named entities, sequence, and attributed claims;
-- do not fabricate archival-looking evidence.
-
-If multiple sources disagree, show the disagreement rather than selecting one silently.
+Begin with a brief **Adaptation fidelity note**. Mark reconstructed visuals **RECONSTRUCTION** or **ADAPTATION** in planning notes; distinguish documented details from generic period-appropriate fill; preserve dates, named entities, sequence, and attributed claims; never fabricate archival-looking evidence. Show disagreements between sources instead of silently choosing one.
 
 ### Explainer / manual
 
-Optimize for successful completion of the procedure.
-
-Each step should show:
-- starting state;
-- action;
-- result;
-- common mistake or warning when relevant.
-
-Do not let dramatic composition obscure the action the reader needs to perform.
+Optimize for successful completion. Show the starting state, action, result, and relevant warning for each step. Dramatic composition must not obscure the procedure.
 
 ## Copyright-aware handling
 
-When the source may be copyrighted:
-- adapt through summary, structure, and transformation;
-- avoid reproducing long passages verbatim;
-- avoid copying distinctive dialogue unnecessarily;
-- preserve the user's ideas and facts without imitating a living artist's exact style.
-
-If the user supplies their own text, it may be transformed directly while still avoiding needless verbatim duplication in the planning output.
+When the source may be copyrighted, adapt through summary, structure, and transformation; avoid reproducing long passages or distinctive dialogue unnecessarily; and do not imitate a living artist's exact style. User-supplied original text may be transformed directly while still avoiding needless verbatim duplication in the planning output.
 
 ## Default output
 
 Use this order unless the user asks for something narrower:
 
-1. **Adaptation summary**
-   - selected mode;
-   - target length;
-   - point of view;
-   - core hook;
-   - fidelity risks.
+1. Adaptation summary and fidelity risks
+2. Source ledger
+3. Character, location, and prop continuity bible
+4. Beat sheet
+5. Page-by-page manga name
+6. Generation package and manifest
+7. Generated reference sheets
+8. Generated pages or panels in reading order
+9. Lettering map if text is separate
+10. QA notes and human-check items
 
-2. **Source ledger**
-   - important facts, recollections, claims, uncertainties, and adaptation choices.
-
-3. **Character / location continuity**
-   - recurring visual anchors.
-
-4. **Beat sheet**
-   - compressed narrative or explanatory beats.
-
-5. **Page-by-page manga name**
-   - page purpose;
-   - panel breakdown;
-   - framing/action;
-   - narration/dialogue;
-   - SFX;
-   - page-turn notes.
-
-6. **Image-generation directions**
-   - global continuity block;
-   - page or key-panel directions.
-
-7. **Human-check items**
-   - details that should be verified before final art.
-
-## Compact output option
-
-If the user asks for a quick conversion, return only:
-- premise;
-- character continuity;
-- beat sheet;
-- page/panel breakdown.
+For a quick or blueprint-only request, return only the requested subset and clearly state that image generation was intentionally not run.
 
 ## Guardrails
 
-- Do not invent source facts.
-- Do not erase uncertainty for dramatic convenience.
-- Do not add supernatural explanations that the source does not establish.
-- Do not add gore, sexualization, or shock elements merely to increase impact.
-- Do not change identities, dates, places, or causal relationships without labeling the change.
-- Do not require a fixed page count when the material clearly needs more or fewer pages; state the tradeoff.
-- Do not generate filler panels that contribute nothing to story, atmosphere, continuity, or explanation.
-- Keep visual continuity explicit enough for downstream image generation.
-- When factual fidelity and cinematic effect conflict, preserve fidelity and explain the adaptation compromise.
+- Do not invent source facts or erase uncertainty for dramatic convenience.
+- Do not add supernatural explanations, gore, sexualization, or shock elements not supported by the source or requested treatment.
+- Do not change identities, dates, places, causal relationships, or historically meaningful objects without labeling the change.
+- Do not generate filler panels.
+- Do not claim continuity merely because prompts repeat the same adjectives; use stable IDs and visual references.
+- Do not claim a page is final before checking it.
+- When factual fidelity and cinematic effect conflict, preserve fidelity and explain the compromise.

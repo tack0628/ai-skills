@@ -14,7 +14,8 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 | Convert a vague product idea into a buildable MVP definition | `$idea-to-spec` | The product shape is still unclear and the deliverable is a specification, not implementation |
 | Choose internal links for a target article | `$internal-link-architect` | Both target content and a real site inventory are available or retrievable |
 | Draft a manga chapter recap, spoiler article, review, or analysis | `$manga-article-architect` | Source-grounded chapter notes or facts exist and the deliverable is manga-specific article copy |
-| Adapt supplied prose, testimony, primary-source material, or explanatory text into a manga blueprint | `$story-to-manga` | The source material already exists and the deliverable is a manga name/storyboard, continuity plan, panelization, or image-generation direction |\n| Build an evidence package before writing, analysis, or fact-checking | `$source-first-researcher` | The user needs questions decomposed, primary sources gathered, claims classified, citations traced, or evidence gaps made explicit |
+| Adapt supplied prose, testimony, primary-source material, or explanatory text into a manga or manga-production package | `$story-to-manga` | The source material already exists and the deliverable is a manga name/storyboard, continuity plan, generated reference art, or final page/panel images |
+| Build an evidence package before writing, analysis, or fact-checking | `$source-first-researcher` | The user needs questions decomposed, primary sources gathered, claims classified, citations traced, or evidence gaps made explicit |
 
 ## Important boundaries
 
@@ -24,7 +25,10 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 - **Specification vs implementation:** `$idea-to-spec` is appropriate while the MVP is vague. An implementation request against an already-defined spec has no matching build skill in this repository.
 - **Visual specificity:** `$gallery-poster-maker` is for its defined 3:4 split poster treatment. General retouching, logos, illustrations, slide design, or unrelated image generation are not matches.
 - **Inventory dependency:** `$internal-link-architect` needs both target content and a real inventory. A missing inventory is a blocking input, not a reason to invent candidate URLs.
-- **Manga article vs manga adaptation:** Use `$manga-article-architect` when the output is a prose article about a manga chapter. Use `$story-to-manga` when supplied prose or source material itself should become a manga blueprint.\n- **Research before documentary manga:** Use `$source-first-researcher` first when primary-source facts still need to be gathered or verified; pass the approved evidence package to `$story-to-manga` for adaptation.\n- **Research vs drafting:** Use `$source-first-researcher` when the deliverable is evidence organized for later use. Use `$manga-article-architect` only when the deliverable is manga article copy. A request for general finished article drafting remains unmatched after research unless another suitable drafting skill is added.
+- **Manga article vs manga adaptation:** Use `$manga-article-architect` when the output is a prose article about a manga chapter. Use `$story-to-manga` when supplied prose or source material itself should become a manga name, production package, or generated manga images.
+- **Blueprint vs full manga production:** `$story-to-manga` handles both. Route to the same skill and preserve the user's requested stopping point; otherwise its default is full production when an image-generation tool is available.
+- **Research before documentary manga:** Use `$source-first-researcher` first when primary-source facts still need to be gathered or verified; pass the approved evidence package to `$story-to-manga` for adaptation and image production.
+- **Research vs drafting:** Use `$source-first-researcher` when the deliverable is evidence organized for later use. Use `$manga-article-architect` only when the deliverable is manga article copy. A request for general finished article drafting remains unmatched after research unless another suitable drafting skill is added.
 
 ## Common multi-skill sequences
 
@@ -75,7 +79,7 @@ Do not ask the user to classify their request in skill terminology. Explain the 
 
 - “記事を直したい” may mean lifecycle prioritization or line/structure review. If an article is already selected and the user wants edits, prefer `$article-quality-editor`; if they want to decide whether and how much to update across articles, prefer `$content-refresh-auditor`.
 - “記事を書いて” matches `$manga-article-architect` only for manga chapter material. General blog drafting has no current match.
-- “画像を作って” matches `$gallery-poster-maker` only when source photos and its poster treatment are intended.
+- “画像を作って” matches `$gallery-poster-maker` only when source photos and its poster treatment are intended. It matches `$story-to-manga` when supplied prose should be adapted into manga reference art or page/panel images.
 - “ツールを作って” matches `$idea-to-spec` only when the user wants the idea specified. Building the tool is a separate missing capability.
 - “調べて記事にして” contains two outcomes. Use `$source-first-researcher` for the evidence package, then route drafting separately; do not imply that research alone produces publishable copy.
 
@@ -89,7 +93,7 @@ Propose a new skill only when the capability is coherent and likely reusable. Us
 
 - general article drafting outside manga (research for it is covered by `$source-first-researcher`);
 - implementing an application from a completed specification;
-- general-purpose image editing outside the gallery-poster treatment;
+- general-purpose image editing outside the gallery-poster treatment and story-to-manga production workflow;
 - publishing content to a CMS;
 - collecting analytics when the user has not supplied an export or authorized a source.
 
