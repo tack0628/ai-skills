@@ -35,11 +35,19 @@ Produce an article that:
 - preserves important narrative chronology;
 - gives the reader useful interpretation after the recap.
 
+## Efficiency defaults
+
+- Use only the supplied notes/source-grounded material unless the user explicitly asks for research.
+- Do not retrieve the same chapter/article again when sufficient notes are already present.
+- Produce 3 title candidates by default, not an open-ended list.
+- If the user asks to revise an existing article, change only the requested or diagnosed sections unless a full rewrite is explicitly requested.
+- Stop when the supplied material is exhausted; do not pad missing detail with generic commentary.
+
 ## Workflow
 
 1. Identify the chapter's central conflict, reveal, turning point, or thematic hook.
 2. Organize the supplied facts into chronological or narratively coherent order.
-3. Draft several SEO-conscious but natural title options.
+3. Draft 3 SEO-conscious but natural title options.
 4. Write a concise lead that tells the reader what makes the chapter notable.
 5. Build the spoiler recap using a clear H2/H3 hierarchy.
 6. Write impressions and analysis separately from factual recap.
