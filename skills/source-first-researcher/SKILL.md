@@ -17,8 +17,8 @@ If the purpose is broad, infer a reasonable scope and state it. Ask only when an
 
 Default to **Standard** unless the user asks otherwise.
 
-- **Quick** — answer a narrow question with the minimum strong evidence; usually 1–2 authoritative/primary sources per core question and no broad context search.
-- **Standard** — cover core questions with the strongest reasonably available evidence; usually 1–3 strong sources per core question, adding secondary context only when useful.
+- **Quick** — answer a narrow question with the minimum strong evidence; use 1–2 authoritative/primary sources per core question and no broad context search.
+- **Standard** — cover core questions with the strongest reasonably available evidence; use at most 3 strong sources per core question by default, adding secondary context only when needed to resolve a gap, conflict, or interpretation.
 - **Deep** — use for contested, high-stakes, historical, or explicitly comprehensive research; broaden cross-checking and source diversity deliberately.
 
 Do not equate depth with link count. In every mode, stop when additional searches mostly repeat established evidence, the core questions are adequately supported, and remaining gaps are explicit.
