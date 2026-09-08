@@ -84,6 +84,16 @@ Use the canonical invocation form `$skill-name`. Do not infer availability from 
 - **Primary output:** Title candidates, lead, structured recap body, separately labeled impressions/analysis, conclusion, and a meta description when requested or useful.
 - **Boundary:** It is manga-specific and must not invent plot facts, dialogue, or canon. It is not a general article-review skill.
 
+## story-to-manga
+
+- **Source:** `skills/story-to-manga/SKILL.md`
+- **Invocation:** `$story-to-manga`
+- **Description:** Convert user-provided stories, firsthand accounts, folklore, historical or primary-source material, and explanatory text into a source-faithful manga blueprint with adaptation notes, character sheets, page and panel breakdowns, dialogue/narration guidance, and image-generation directions. Use when the user asks to manga-ize, comic-adapt, storyboard, panelize, or visually dramatize supplied prose, or invokes $story-to-manga.
+- **Required input:** Source text, notes, transcript, or a source-grounded summary.
+- **Optional input:** Page/panel count, reading direction, manga format, audience, tone, visual mood, dialogue density, character references, historical/location constraints, desired image-generation directions, and provenance metadata.
+- **Primary output:** Adaptation summary, source ledger, continuity sheets, beat sheet, page-by-page manga name, image-generation directions, and human-check items.
+- **Boundary:** It adapts supplied material rather than researching missing facts or producing a finished manga image by default. Unsupported facts, exact quotations, and certainty must not be invented.
+
 ## source-first-researcher
 
 - **Source:** `skills/source-first-researcher/SKILL.md`
