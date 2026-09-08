@@ -118,6 +118,6 @@ Do not:
 
 When an image-generation or image-editing tool is available, use it to create the final poster.
 
-For multiple uploaded images, produce one poster per image.
+For multiple uploaded images, produce one poster per image. Generate in batches of at most 3 source images per pass by default; for larger sets, state that the request is high-load and continue in small batches rather than attempting the whole set in one burst.
 
 If examples or style clarification are needed, read `references/style-guide.md`.
