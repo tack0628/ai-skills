@@ -1,0 +1,4 @@
+interface:
+  display_name: "Story to Manga"
+  short_description: "Turn supplied prose and source material into a source-faithful manga blueprint"
+  default_prompt: "Use $story-to-manga to adapt this supplied text into a source-faithful manga blueprint with continuity sheets, beat structure, page and panel breakdowns, dialogue or narration guidance, and image-generation directions."
