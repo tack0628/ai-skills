@@ -9,12 +9,14 @@ Turn supplied prose into a source-faithful manga through one continuous workflow
 
 ## Delivery contract
 
-The default is **full production**, not a blueprint-only handoff.
+The default is **staged full production**: complete planning first, then generate bounded visual units sequentially rather than attempting the entire manga in one generation burst.
 
 - When an image-generation tool is available, continue through actual image generation, deterministic balloon and lettering composition, and return the final lettered images.
 - Stop at the manga name, continuity sheets, or prompts only when the user explicitly asks for that narrower deliverable.
 - If image generation is unavailable or fails, state the concrete blocker and return the completed blueprint plus executable prompt package. Never imply that images were created when they were not.
-- Do not require an extra confirmation between the name and image generation unless a missing choice would materially change the work or the environment requires authorization.
+- Do not require an extra confirmation between stages unless a missing choice would materially change the work or the environment requires authorization.
+- Keep only the current page/panel generation package plus compact continuity anchors active during image generation; do not repeatedly carry the full source ledger and all page prompts when they are not needed.
+- Generate and QA one page at a time by default. For dense pages, generate one panel at a time and compose deterministically.
 
 For the detailed generation, reference reuse, lettering, file, and QA procedure, read [references/image-production-workflow.md](references/image-production-workflow.md) before generating images.
 
@@ -126,23 +128,27 @@ Create:
 
 Do not overload each prompt with the entire source. Put stable information in references and page-specific differences in the individual prompt.
 
-### 9. Generate master references
+### 9. Stage the production run
+
+Freeze the approved source ledger, continuity bible, beat sheet, and name as the production state. Do not regenerate them for each page. Build a compact per-page handoff containing only the relevant beat, continuity IDs, art direction, reserved lettering zones, and prior-page continuity cues.
+
+### 10. Generate master references
 
 Use the available image-generation tool to create the character sheet first, followed by essential location or prop sheets. Inspect them before page generation. Correct material identity, costume, era, or layout errors now so they do not propagate.
 
 If the user supplied appearance references, use them as references rather than silently redesigning the subject.
 
-### 10. Generate pre-lettering pages or panels
+### 11. Generate pre-lettering pages or panels
 
 Generate one distinct asset per tool call. Reuse the approved master references on every call; do not use the previous generated page as the sole identity anchor. Generate in story order so the preceding page can be an additional continuity reference when useful.
 
 Generate artwork without dialogue text, captions, SFX, speech balloons, or watermark. Preserve the low-detail zones reserved by the lettering plan. Use page-level generation for simple layouts. Use panel-level generation followed by available deterministic composition when a crowded page or exact panel geometry makes a single generated page unreliable.
 
-### 11. Insert speech balloons and lettering
+### 12. Insert speech balloons and lettering
 
 Read [references/lettering-workflow.md](references/lettering-workflow.md). Use `scripts/letter_manga.py` with the validated lettering plan to place bubbles, captions, and exact vertical or horizontal text over the approved art. Keep the pre-lettering art unchanged and write a separate final file. Do not ask the image model to render exact final dialogue when deterministic composition is available.
 
-### 12. Inspect and repair
+### 13. Inspect and repair
 
 Check every output against the production script, name, source ledger, continuity bible, reading order, anatomy, props, environment, balloon ownership, text accuracy, text fit, and safety constraints. Correct the lettering plan for copy or placement errors; regenerate art only for art defects. Do not silently accept a visually polished image that changes a source fact or recurring design.
 
