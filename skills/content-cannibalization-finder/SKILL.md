@@ -19,6 +19,18 @@ Accept any combination of:
 
 Use only supplied data and information retrieved through authorized tools. Query-by-URL performance data is optional, but without it the result is a content-overlap screening: label findings `competition candidate`, do not state that performance cannibalization is established, and explain which performance evidence would test the hypothesis.
 
+## Candidate efficiency
+
+Do not compare every page pair at full depth by default.
+
+Use a staged funnel:
+1. Generate candidates cheaply from shared query exposure, supplied clusters, titles/headings, or precomputed similarity.
+2. Remove pairs with clearly different roles/intents when evidence is sufficient.
+3. Deep-read full content and time-series evidence only for the remaining plausible competition candidates.
+4. Rank and report only material candidates plus a concise count of screened-out groups.
+
+For large sites, prefer deterministic/precomputed candidate generation before model-heavy pair analysis. Never treat the cheap screening signal as proof of cannibalization.
+
 ## Reference routing
 
 - For normalization, candidate generation, evidence signals, counterevidence, query ownership, time-series analysis, and confidence, read [references/detection-framework.md](references/detection-framework.md).
