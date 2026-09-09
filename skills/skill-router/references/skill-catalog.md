@@ -104,6 +104,16 @@ Use the canonical invocation form `$skill-name`. Do not infer availability from 
 - **Primary output:** A versioned research package with question, claim, and source IDs; source classifications and locators; access dates; fact/inference/opinion status; confidence; conflicts; evidence gaps; important points; freshness triggers; and downstream handoff notes.
 - **Boundary:** Structures and verifies research. It does not write the finished article, treat secondary repetition as primary evidence, or hide the absence of suitable primary sources.
 
+## typo-checker-lite
+
+- **Source:** `skills/typo-checker-lite/SKILL.md`
+- **Invocation:** `$typo-checker-lite`
+- **Description:** Check Japanese text for clear typos, omissions, conversion mistakes, particle errors, grammar errors, duplicated characters, and obvious notation inconsistencies. Use when the user wants proofreading that identifies only localized errors while preserving the original wording; do not use for rewriting, style improvement, structure review, SEO, or fact-checking.
+- **Required input:** The text to check.
+- **Optional input:** Known intentional spellings, proper nouns, dialogue conventions, or a requested subsection.
+- **Primary output:** Only localized findings with the smallest necessary quotation, issue type, and concise correction candidate; `要確認` for ambiguous cases; a one-line no-issue response when appropriate.
+- **Boundary:** It does not rewrite the full text, improve style or structure, evaluate content, perform SEO review, or fact-check.
+
 ## Maintenance contract
 
 When a skill is added, renamed, removed, or materially changes scope:
