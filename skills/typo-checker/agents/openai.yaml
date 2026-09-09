@@ -1,0 +1,4 @@
+interface:
+  display_name: "誤字脱字チェッカー"
+  short_description: "誤字脱字と表記を、文章を書き換えずに校正するスキル"
+  default_prompt: "Use $typo-checker to check this Japanese text for errors and notation issues without rewriting it."

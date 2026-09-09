@@ -114,6 +114,16 @@ Use the canonical invocation form `$skill-name`. Do not infer availability from 
 - **Primary output:** Only localized findings with the smallest necessary quotation, issue type, and concise correction candidate; `要確認` for ambiguous cases; a one-line no-issue response when appropriate.
 - **Boundary:** It does not rewrite the full text, improve style or structure, evaluate content, perform SEO review, or fact-check.
 
+## typo-checker
+
+- **Source:** `skills/typo-checker/SKILL.md`
+- **Invocation:** `$typo-checker`
+- **Description:** Check Japanese text for definite errors, okurigana, auxiliary-verb notation, kanji/hiragana usage, minor notation inconsistencies, and contextually suspicious wording without rewriting or improving the prose. Use when the user wants broader proofreading than typo-checker-lite while preserving wording, voice, and content.
+- **Required input:** Japanese text to proofread.
+- **Optional input:** Notation rules or house style.
+- **Primary output:** Findings grouped into definite corrections, notation candidates, and context-dependent checks; uncertain items explicitly preserve the possibility that no correction is needed.
+- **Boundary:** It does not rewrite, reorder, change tone, improve expression or readability, add content, fact-check, structurally edit, or perform a publication-readiness review.
+
 ## Maintenance contract
 
 When a skill is added, renamed, removed, or materially changes scope:

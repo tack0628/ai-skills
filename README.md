@@ -10,6 +10,7 @@
 |---|---|---|---|---|
 | `skill-router` | 依頼に合うSkillの選定、入力案内、実行順の提案 | `$skill-router ブログ記事を見直して内部リンクも整えたい` | やりたいこと。目的、素材、制約があれば併記 | 推奨Skill、選定理由、不足入力、実行順。該当Skillがなければ新規Skill候補 |
 | `typo-checker-lite` | 原文を書き換えず、明確な誤字・脱字・変換ミス・助詞ミスだけを指摘 | `$typo-checker-lite この文章の誤字脱字だけ確認して` | チェック対象の文章 | 問題箇所、問題の種類、短い修正候補。問題がなければ一文で終了 |
+| `typo-checker` | 誤字脱字に加えて送り仮名・補助動詞・漢字／ひらがな・表記揺れも通常校正 | `$typo-checker この原稿を校正して` | 校正する日本語文章。任意で表記ルール | 明確な修正、表記の候補、要確認事項。リライトは行わない |
 | `article-quality-editor` | 完成記事を編集長視点で査読し、公開可否と修正優先度を判断 | `$article-quality-editor この記事を公開前に査読して` | 記事本文（必須）。任意で読者、目的、出典、キーワード、文体ルール | 公開判定、品質評価、優先度付き指摘、要確認事項、修正順 |
 | `content-cannibalization-finder` | 記事同士の検索意図競合を複数の根拠から検出し、共存・差別化・統合等を判断 | `$content-cannibalization-finder 記事一覧とSearch Consoleデータから競合候補を調べて` | URL等の安定した識別子。任意でタイトル、本文/要約、クエリ×URLの検索データ、時系列、内部リンク等 | 競合候補/共存判定、クエリ所有状況、KEEP/DIFFERENTIATE/MERGE/REDIRECT/INTERNAL-LINK/HUMAN、根拠・反証・確信度 |
 | `content-refresh-auditor` | 既存記事を監査し、維持・調整・刷新・統合等を判断 | `$content-refresh-auditor 既存記事の更新優先度を監査して` | 記事本文または内容表現。複数記事ではURL等の識別子。任意で公開日・検索データ等 | KEEP/TUNE/REFRESH/MERGE/SPLIT/PRUNE/HUMAN判定、根拠、確信度、優先度、次の行動 |
