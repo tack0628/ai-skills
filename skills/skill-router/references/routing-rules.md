@@ -7,6 +7,7 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 | User's intended result | Route | Distinguishing evidence |
 |---|---|---|
 | Choose a skill, see available capabilities, or plan a cross-skill workflow | `$skill-router` | The desired result is a route or execution plan, not the domain artifact itself |
+| Find only clear typos and localized language errors without rewriting | `$typo-checker-lite` | The user wants minimal error detection, not editorial evaluation or prose improvement |
 | Assess whether an existing article is ready to publish | `$article-quality-editor` | A completed draft exists; the user wants editorial diagnosis, verification needs, or concrete fixes |
 | Detect whether multiple pages compete for the same search intent | `$content-cannibalization-finder` | The user wants page-pair/cluster, query-ownership, overlap, or cannibalization diagnosis rather than a general content lifecycle decision |
 | Decide what to do with an already-published article or portfolio | `$content-refresh-auditor` | The desired result is KEEP/TUNE/REFRESH/MERGE/SPLIT/PRUNE/HUMAN prioritization |
@@ -19,6 +20,7 @@ Use these rules after consulting `skill-catalog.md`. They resolve overlaps and m
 
 ## Important boundaries
 
+- **Typo check vs editorial review:** Use `$typo-checker-lite` when the user wants only clear localized errors and no rewriting. Use `$article-quality-editor` when they want publication readiness, structure, clarity, tone, factual-risk, or broader improvement findings.
 - **Review vs refresh audit:** Use `$article-quality-editor` for the quality of a current draft. Use `$content-refresh-auditor` for the lifecycle decision and priority of an existing article. If both are requested, audit first; only send approved revision work to editorial review after revision.
 - **Cannibalization diagnosis vs refresh audit:** Use `$content-cannibalization-finder` when the core question is whether pages compete for the same intent, how query ownership is distributed, or whether overlap is useful. Use `$content-refresh-auditor` when overlap is only one factor in a broader KEEP/TUNE/REFRESH/MERGE/SPLIT/PRUNE decision. For a combined portfolio audit, diagnose material overlap candidates first and pass the evidence into the refresh audit.
 - **Drafting vs reviewing:** Use `$manga-article-architect` to create or restructure a manga article from notes. Use `$article-quality-editor` to judge a completed draft. Do not route general drafting to the editor.
