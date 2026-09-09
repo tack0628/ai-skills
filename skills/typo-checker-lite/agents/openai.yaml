@@ -1,0 +1,4 @@
+interface:
+  display_name: "誤字脱字チェッカー Lite"
+  short_description: "原文を書き換えず、明確な誤字・脱字だけを指摘します"
+  default_prompt: "Use $typo-checker-lite to check the following text and report only clear errors without rewriting the full text."
