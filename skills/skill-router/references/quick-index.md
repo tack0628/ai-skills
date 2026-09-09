@@ -13,6 +13,7 @@ Use this file for the first routing pass. Read the full catalog only when this i
 | $manga-article-architect | Draft a manga recap/spoiler/review article from grounded notes |
 | $source-first-researcher | Build a primary-source-first evidence package |
 | $story-to-manga | Adapt supplied prose/source material into manga production |
+| $typo-checker-lite | Identify clear localized errors without rewriting the source text |
 | $skill-router | Choose skills or plan a multi-skill workflow |
 
 ## Fast routing rule
