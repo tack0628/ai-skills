@@ -1,0 +1,4 @@
+interface:
+  display_name: "文章要約・要点整理 Lite"
+  short_description: "長文から必要な情報だけを抽出し、短い箇条書きに圧縮します"
+  default_prompt: "Use $compact-summarizer-lite to compress the following text into terse bullet points containing only essential information."

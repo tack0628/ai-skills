@@ -24,6 +24,16 @@ Use the canonical invocation form `$skill-name`. Do not infer availability from 
 - **Primary output:** Publication verdict; quality overview; prioritized findings with concrete edits; deletion/compression candidates; human verification checks; strengths to preserve; revision order. A full rewrite only when requested.
 - **Boundary:** Reviews an existing draft. It does not create a topic-specific article from raw notes by default.
 
+## compact-summarizer-lite
+
+- **Source:** `skills/compact-summarizer-lite/SKILL.md`
+- **Invocation:** `$compact-summarizer-lite`
+- **Description:** Compress supplied text into terse bullet points that retain only essential facts, decisions, chronology, dates, numbers, names, consequences, and next-action information. Use when the user wants a strongly compressed summary or quick review of long prose, notes, reports, or conversation logs; do not use for explanation, rewriting, analysis, fact-checking, comparison, or format conversion.
+- **Required input:** The text to summarize.
+- **Optional input:** None. The Lite version intentionally uses a fixed, strongly compressed bullet format.
+- **Primary output:** Flat Markdown bullets, usually around 10–20% of the source length, preserving essential facts, chronology, attribution, and uncertainty without added commentary.
+- **Boundary:** It only extracts and compresses supplied content. It does not explain, rewrite, evaluate, fact-check, compare sources, search externally, or convert the summary into another content format.
+
 ## content-refresh-auditor
 
 - **Source:** `skills/content-refresh-auditor/SKILL.md`

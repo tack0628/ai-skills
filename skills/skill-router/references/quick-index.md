@@ -5,6 +5,7 @@ Use this file for the first routing pass. Read the full catalog only when this i
 | Skill | Primary outcome |
 |---|---|
 | $article-quality-editor | Review or improve a completed article draft |
+| $compact-summarizer-lite | Strongly compress supplied text into essential bullet points |
 | $content-cannibalization-finder | Diagnose competing pages/search intent overlap |
 | $content-refresh-auditor | Decide KEEP/TUNE/REFRESH/MERGE/SPLIT/PRUNE/HUMAN for existing content |
 | $gallery-poster-maker | Turn supplied photos into the defined gallery poster |
